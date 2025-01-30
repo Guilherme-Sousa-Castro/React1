@@ -1,14 +1,23 @@
+import { useState } from 'react' 
+//React Hooks -> tudo o que começa com use vindo do react. Componentes do react que so podem ser chamadas dentro da App
 import { CORE_CONCEPTS } from "./data.js";
 import Header from "./components/Header/Header.jsx";
 import CoreConcept from "./components/CoreConcept.jsx";
 import TabButton from "./components/TabButton.jsx";
-function handleClick(selectedButton){
-
-  console.log(selectedButton);
-}
-
+import {EXAMPLES} from './data.js'
 
 function App() {
+  let /*frase*/ [selectedToppic, setSelectedTopic] /*array*/ = useState('components'); 
+  //obrigado a chamar sempre no inicio do componente principal ou de custom hooks
+  
+function handleClick(selectedButton){
+
+  setSelectedTopic(selectedButton);
+  console.log(selectedToppic)
+}
+
+console.log("APP CONTENT EXECUTING");
+
   return (
     <div>
       <Header />
@@ -30,7 +39,15 @@ function App() {
             <TabButton onSelect = {() => handleClick('props')}>Props</TabButton>
             <TabButton onSelect = {() => handleClick('state')}>State</TabButton>
           </menu>
-          Dynamic Content
+          <div id = "tab-content">
+            <h3>{EXAMPLES[selectedToppic].title}</h3>
+            <p>{EXAMPLES[selectedToppic].description}</p>
+            <pre>
+              <code>
+              {EXAMPLES[selectedToppic].code}
+              </code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
