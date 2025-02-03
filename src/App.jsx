@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment /*usado para juntar os elementos sem precisar da div*/  } from "react";
 //React Hooks -> tudo o que começa com use vindo do react. Componentes do react que so podem ser chamadas dentro da App
 import { CORE_CONCEPTS } from "./data.js";
 import Header from "./components/Header/Header.jsx";
@@ -29,9 +29,10 @@ function App() {
       </div>
     );
   }
+ //invés do fragment pode-se usar as <></> vazias
 
   return (
-    <div>
+    <Fragment>
       <Header />
       <main>
         <section id="core-concepts">
@@ -75,7 +76,7 @@ function App() {
           {tabContent}
         </section>
       </main>
-    </div>
+    </Fragment>
   );
 }
 
