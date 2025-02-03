@@ -28,6 +28,9 @@ export default function Examples() {
   return (
     <Section title="Examples" id="examples">
       <Tabs
+      ButtonsContainer="menu"
+      //trocar pelo que quiser, deixa a classe tabs mais flexivel
+      //pode-se usar ainda {Section} e "div"
         buttons={
           <>
             <TabButton
